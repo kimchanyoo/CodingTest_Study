@@ -30,4 +30,5 @@ public class MixingStrings {
 		answer = new String(result);
 		return answer;
 	}
+
 }

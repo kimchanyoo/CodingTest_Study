@@ -20,4 +20,5 @@ public class ConvertingCharacterListToString {
 
 		return answer;
 	}
+
 }
