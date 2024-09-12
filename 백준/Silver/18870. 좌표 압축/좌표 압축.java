@@ -13,12 +13,12 @@ public class Main {
         int n = Integer.parseInt(br.readLine());
 
         int[] arr = new int[n];
+        int[] sorted = new int[n];
         st = new StringTokenizer(br.readLine());
         for(int i = 0; i < n; i++) {
-            arr[i] = Integer.parseInt(st.nextToken());
+            sorted[i] = arr[i] = Integer.parseInt(st.nextToken());
         }
 
-        int[] sorted = arr.clone();
         Arrays.sort(sorted);
 
         HashMap<Integer, Integer> map = new HashMap<>();
@@ -27,7 +27,7 @@ public class Main {
             if(map.containsKey(sorted[i])) {
                 continue;
             }
-            map.put(sorted[i], map.getOrDefault(sorted[i], count));
+            map.put(sorted[i], count);
             count++;
         }
 
