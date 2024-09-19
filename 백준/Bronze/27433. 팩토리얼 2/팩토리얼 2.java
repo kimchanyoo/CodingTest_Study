@@ -10,7 +10,7 @@ public class Main {
         System.out.println(factorial(n));
     }
     public static long factorial(int n) {
-        if(n <= 0){
+        if(n <= 1){
             return 1;
         }else{
             return n * factorial(n-1);
