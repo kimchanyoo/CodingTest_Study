@@ -11,32 +11,25 @@ public class Main {
         int N = Integer.parseInt(st.nextToken());
         int M = Integer.parseInt(st.nextToken());
 
-        int[] arr = new int[N];
-        long[] dp = new long[N];
+        int[] arr = new int[N + 1];
+        int[] sumList = new int[N + 1];
         st = new StringTokenizer(br.readLine());
-        for(int i = 0; i < N; i++){
+        for(int i = 1; i <= N; i++){
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
-        dp[0] = arr[0];
-        for(int i = 1; i < N; i++){
-            dp[i] = dp[i - 1] + arr[i];
+        for(int i = 1; i <= N; i++){
+            sumList[i] = sumList[i - 1] + arr[i];
         }
 
-        long sum = 0;
-        long result = 0;
+        int result = 0;
         for(int i = 0; i < M; i++){
             st = new StringTokenizer(br.readLine());
             int a = Integer.parseInt(st.nextToken());
             int b = Integer.parseInt(st.nextToken());
-            for(int j = 0; j < a - 1; j++){
-                sum += arr[j];
-            }
-            result = dp[b - 1];
-            result -= sum;
 
+            result = sumList[b] - sumList[a - 1];
             sb.append(result).append("\n");
-            sum = 0;
             result = 0;
         }
 
