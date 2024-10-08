@@ -24,19 +24,14 @@ public class Main {
 
         int min = station[0];
         long sum = 0;
-        long length = 0;
         for (int i = 1; i < N; i++) {
-            length += line[i - 1];
+            long length = line[i - 1];
+            sum += min * length;
             if(station[i] < min){
-               sum += min * length;
-               min = station[i];
-               length = 0;
+                min = station[i];
             }
         }
 
-        if(sum == 0){
-            sum = min * length;
-        }
         System.out.println(sum);
     }
 }
