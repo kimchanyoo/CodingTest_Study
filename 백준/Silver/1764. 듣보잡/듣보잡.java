@@ -10,19 +10,16 @@ public class Main {
         int M = Integer.parseInt(st.nextToken());
 
         HashSet<String> notListen = new HashSet<>();
-        HashSet<String> notSee = new HashSet<>();
 
         for (int i = 0; i < N; i++) {
             notListen.add(br.readLine());
         }
-        for (int i = 0; i < M; i++) {
-            notSee.add(br.readLine());
-        }
-
+        
         ArrayList<String> result = new ArrayList<>();
-
-        for (String s : notListen) {
-            if (notSee.contains(s)) {
+        
+        for (int i = 0; i < M; i++) {
+		        String s = br.readLine();
+            if (notListen.contains(s)) {
                 result.add(s);
             }
         }
