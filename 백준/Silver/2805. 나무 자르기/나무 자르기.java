@@ -11,30 +11,35 @@ public class Main {
         int N = Integer.parseInt(st.nextToken());
         int M = Integer.parseInt(st.nextToken());
 
-        int[] tree = new int[N];
         int max = 0;
-        int min = 0;
+
+        int[] trees = new int[N];
 
         st = new StringTokenizer(br.readLine());
         for (int i = 0; i < N; i++) {
-            tree[i] = Integer.parseInt(st.nextToken());
-            if (tree[i] > max) {
-                max = tree[i];
+            trees[i] = Integer.parseInt(st.nextToken());
+            if (trees[i] > max) {
+                max = trees[i];
             }
         }
 
+        max++;
+
+        int mid;
+        int min = 0;
+
         while (min < max) {
-            int mid = (min + max) / 2;
+            mid = (max + min) / 2;
 
-            long sum = 0;
+            long count = 0;
 
-            for (int j : tree) {
-                if (j - mid > 0) {
-                    sum += j - mid;
+            for (int length : trees) {
+                if (length - mid > 0) {
+                    count += (length - mid);
                 }
             }
 
-            if (sum < M) {
+            if (count < M) {
                 max = mid;
             } else {
                 min = mid + 1;
